@@ -1,0 +1,20 @@
+#include <bits/stdc++.h> 
+vector<int> anagramMapping(int n, vector<int> a, vector<int> b) {
+    int bs = 7;
+    int bm = (1<<bs)-1;
+
+    for(int i=0; i<n; i++){
+        a[i] = (a[i]<<bs)+i;
+        b[i] = (b[i]<<bs)+i;
+    }
+
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+
+    vector<int> ans(n,0);
+
+    for(int i=0; i<n; i++){
+        ans[a[i]&bm] = b[i]&bm;
+    }
+    return ans;
+}
