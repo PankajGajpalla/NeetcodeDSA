@@ -1,0 +1,33 @@
+class Solution:
+    def canPermutePalindrome(self, s: str) -> bool:
+        chars = set()
+        for c in s:
+            if c in chars:
+                chars.remove(c)
+            else:
+                chars.add(c)
+        return len(chars) <= 1
+
+
+
+
+
+
+
+vector<int> atoz(26,0);
+
+for(int i = 0; i < st.length(); i++) {
+    atoz[st[i] - 'a']++;
+    atoz[st[i] - 'a'] %= 2;
+}
+
+int cnt = 0;
+
+for(int i = 0; i < 26; i++) {
+    if(atoz[i] == 1) {
+        cnt++;
+        if(cnt > 1) return false;
+    }
+}
+
+return true;
