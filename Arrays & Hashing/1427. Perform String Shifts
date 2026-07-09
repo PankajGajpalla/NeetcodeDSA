@@ -1,0 +1,22 @@
+1427. Perform String Shifts
+
+for i in shift:
+    k = i[1]%len(s)
+    if i[0]==0:
+        s = s[k:]+s[:k]
+    else:
+        s = s[-k:] + s[:-k]
+
+return s;
+
+
+l=0, r=0
+for i in shift:
+    if i[0]==0:
+        l+=i[1]
+    if i[0]==1:
+        r+=i[1]
+
+k = (l-r)%len(s)
+
+return s[k:] + s[:k]
