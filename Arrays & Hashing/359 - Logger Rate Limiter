@@ -1,0 +1,24 @@
+class Solution:
+    def __init__(self):
+        self.dic = {}
+
+    def shouldPrintMessage(self, logStr):
+        if logStr[1] not in self.dic or logStr[0] - self.dic[logStr[1]] >= 10:
+            self.dic[logStr[1]] = logStr[0]
+            return True
+        return False
+
+
+stream = [
+    [1, "foo"],
+    [2, "bar"],
+    [3, "foo"],
+    [8, "bar"],
+    [10, "foo"],
+    [11, "foo"]
+]
+
+l1 = Solution()
+
+for log in stream:
+    print(l1.shouldPrintMessage(log))
